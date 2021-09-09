@@ -8,5 +8,6 @@ namespace MShapes {
     public interface ISquareable {
         int[] Dimensions { get; set; }
         double Square();
+        double Square(int accuracy);
     }
 }
