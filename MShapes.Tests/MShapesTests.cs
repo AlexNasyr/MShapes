@@ -25,5 +25,11 @@ namespace MShapes.Tests {
         [TestCase(new int[] { 1, 2, 1 })]
         public void TestTriangle_ThrowArgumentException(int[] dim)
             => Assert.Throws<ArgumentException>(() => new Triangle(dim).Square(8), "This triangle are not possible.");
+        
+        [TestCase(new int[] { 3, 4, 5 }, true)]
+        public void TestTriangleRight(int[] dim, bool expected) {
+            Assert.AreEqual(expected, new Triangle(dim).isTriangleRight());
+        }
+
     }
 }

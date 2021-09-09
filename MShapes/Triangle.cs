@@ -47,7 +47,10 @@ namespace MShapes {
             if(dimCounts.Length == 2 && dimCounts[0] == dimCounts[1]) { return false; }
             return true;
         }
-
+        /// <summary>
+        /// Check if the given triangle right.
+        /// </summary>
+        /// <returns>Boolean is right or not.</returns>
         public bool isTriangleRight() {
             Array.Sort(Dimensions);
             return (Dimensions[0] * Dimensions[0]) + (Dimensions[1] * Dimensions[1]) == Dimensions[2] * Dimensions[2] ? true : false;
