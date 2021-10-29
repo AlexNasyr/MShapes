@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MShapes {
     /// <summary>
@@ -36,15 +32,22 @@ namespace MShapes {
             double square =  Math.Sqrt(halfPerimeter * (halfPerimeter - Dimensions[0]) * (halfPerimeter - Dimensions[1]) * (halfPerimeter - Dimensions[2]));
             return square;
         }
-        public double Square(int accuracy) => Math.Round(Square(), accuracy);
         /// <summary>
         /// Calculate square of object with accuracy is given.
         /// </summary>
         /// <param name="accuracy">Integer accuracy.</param>
         /// <returns>Double square.</returns>
+        public double Square(int accuracy) => Math.Round(Square(), accuracy);
+
+        /// <summary>
+        /// Check if the given triangle is possible.
+        /// </summary>
+        /// <returns>Boolean is possible or not.</returns>
         private bool isExists(int[] dimensions) {
-            var dimCounts = (from dim in dimensions group dim by dim into dimGroupes select dimGroupes.Sum()).ToArray();
-            if(dimCounts.Length == 2 && dimCounts[0] == dimCounts[1]) { return false; }
+            Array.Sort(dimensions);
+            if (dimensions[0] + dimensions[1] == dimensions[2]) {
+                return false;
+            }
             return true;
         }
         /// <summary>
